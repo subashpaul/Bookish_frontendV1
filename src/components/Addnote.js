@@ -35,7 +35,7 @@ export default function Addnote(props) {
     return (
 
         <div className='my-3'>
-            <h2>Add Your Book</h2>
+            <h2>Add Your Books</h2>
             <form className='my-3'>
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">Title</label>
