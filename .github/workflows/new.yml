@@ -1,34 +1,17 @@
-name: Deploy to Azure and Notify Slack
-on:
-  push:
-    branches:
-      - master # or your deployment branch
+on: [push]
 
 jobs:
   new_push_job:
     runs-on: ubuntu-latest
+    name: New push to repo
     steps:
-    - name: Checkout code
+    - name: Send GitHub trigger payload to Slack Workflow Builder
+      id: slack
       uses: act10ns/slack@v1
-
-    # Your build and deploy steps go here
-    
-    - name: Notify Slack on Success
-      if: success()
-      uses: act10ns/slack@v1
-      with:
-        status: ${{ job.status }}
+      with: 
+        status: starting
         channel: '#test'
-        message: Build and Deploy success...
+        message: Starting Build and Deploy...
+      if: always()
       env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # Set this in your repo secrets
-
-    - name: Notify Slack on Failure
-      if: failure()
-      uses: act10ns/slack@v1
-      with:
-        status: ${{ job.status }}
-        channel: '#test'
-        message: Build and Deploy failed...
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # Set this in your repo secrets
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
