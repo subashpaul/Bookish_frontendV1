@@ -42,7 +42,7 @@ export default function Addnote(props) {
                     <input placeholder='Enter the title of your book' type="text" className="form-control finput" id="title" name='title' aria-describedby="emailHelp" onChange={onChange} />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="auth_name" className="form-label">Author's name</label>
+                    <label htmlFor="auth_name" className="form-label">Author name</label>
                     <input placeholder="Enter the author's name here" type="text" className="form-control finput" id="auth_name" name='auth_name' onChange={onChange} />
                 </div>
 
