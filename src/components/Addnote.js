@@ -23,7 +23,7 @@ export default function Addnote(props) {
             props.showAlert(val.msg, 'danger')
         }
         else {
-            props.showAlert("Note Added Successfully", 'success')
+            props.showAlert("Note Added Successfully😇", 'success')
         }
 
 
