@@ -18,7 +18,8 @@ jobs:
       uses: act10ns/slack@v1
       with:
         status: ${{ job.status }}
-        fields: repo,message
+        channel: '#test'
+        message: Build and Deploy success...
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # Set this in your repo secrets
 
@@ -27,6 +28,7 @@ jobs:
       uses: act10ns/slack@v1
       with:
         status: ${{ job.status }}
-        fields: repo,message
+        channel: '#test'
+        message: Build and Deploy failed...
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # Set this in your repo secrets
